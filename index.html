@@ -198,13 +198,14 @@
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    position: absolute; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
+    overflow-y: scroll;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
@@ -214,12 +215,11 @@
 .modal-content {
     margin: auto;
     display: flex;
-	
+    max-width: 900px;
 	justify-content:center;
 	align-items:center;
     width: 80%;
-    max-width: 700px;
-	overflow:visible;
+    max-width: 900px;
 }
 
 /* Caption of Modal Image */
@@ -236,7 +236,7 @@
 
 /* Add Animation */
 .center-image{
-	width:800px;
+	width:700px;
 	max-width:90%;
 }
 .modal-content, #caption {    
