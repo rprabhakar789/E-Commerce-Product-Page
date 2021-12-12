@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://fonts.google.com/specimen/Kumbh+Sans:300,400,600,700&amp;lang=en" />
+  
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ 
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+  
+  <title>Frontend Mentor | E-commerce product page</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="index.js"></script>
+ 
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+  
+	@import url('https://fonts.google.com/specimen/Kumbh+Sans:wght@300;400;600&display=swap');
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+	body{
+		margin:0;
+		font-family: 'Kumbh Sans';
+		font-weight: 700;
+	}
+	.paper{
+		width:calc(100vw-20px);
+		height:100vh;
+		margin:0;
+		font-family:'Kumbh Sans'
+	}
+	.page{
+		padding: 20px 150px 50px 150px;
+	}
+	.nav{
+		display:flex;
+		margin-top:20px;
+		
+	}
+	.nav-items{
+		display:flex;
+		margin:auto;
+		margin-left:20px;
+	}
+	p{
+		margin:auto;
+		margin-left:20px;
+	}
+	.nav-right{
+		display:flex;
+		margin:auto;
+		margin-right:0;
+		justify-content:flex-end;
+	}
+	.cart-image{
+		margin:auto;
+		margin-right:40px;
+	}
+	.underline{
+		border-bottom: 5px solid grey;
+	}
+	.product{
+		display:flex;
+		margin:auto;
+		margin-top:100px;
+		margin-left:20px;
+	}
+	.product-image{
+		display:block;
+	}
+	.product1-image{
+		width:500px;
+		height:50ppx;
+		border-radius:20px;
+	}
+	.other-images-section{
+		max-width:700px;
+		display:flex;
+		margin:auto;
+		margin-top:20px;
+		justify-content:center;
+		align-items:center;
+	}
+	.other-image{
+		height:100px;
+		width:100px;
+		margin:0;
+	}
+	
+	li{
+		list-style-type: none;
+		height:100px;
+		width:100px;
+		margin:auto;
+		margin-left:15px;
+		border-radius:10px;
+	}
+	li:focus{
+	  border: 4px solid hsl(26, 100%, 55%);
+	}
+	.selected{
+	}
+	.product-detail{
+		margin-top:20px;
+		margin-left:200px;
+		margin-right:100px;
+		display:block;
+		max-width:480px;
+	}	
+	.product-header{
+		font-size:48px;
+	}
+	.product-detail p{
+		margin-left:0;
+		font-size:18px;
+		color: hsl(219, 9%, 45%);
+		font-weight:300;
+		line-height:30px;
+	}
+	.price-section
+	{
+		display:block;
+	}
+	.row{
+		display:flex;
+	}
+	.price{
+		font-weight:600;
+	}
+	.offer{
+		display:flex;
+		margin:auto;
+		margin-left:40px;
+		width:50px;
+		height:30px;
+		border-radius: 8px;
+		background-color:hsl(25, 100%, 94%);
+		justify-content:center;
+		align-items:center;
+	}
+	.add-product{
+		display:flex;
+		margin-top:40px;
+		}
+	.count{
+		
+		display:flex;
+		min-width:100px;
+		justify-content:center;
+		align-items:center;
+		margin-left:0px;
+		background-color: hsl(223, 64%, 98%);
+		border-radius:10px;
+	}
+	.count p{
+		margin:auto;
+		font-weight:800;
+	}
+	.cart{
+		display:flex;
+		height:40px;
+		width:200px;
+		color:white;
+		justify-content:center;
+		align-items:center;
+		background-color:hsl(26, 100%, 55%);
+		border-radius:10px;
+		margin-left:50px;
+	}
+	dialog{
+		position:absolute;
+		top:50%;
+		left:50%;
+	  -webkit-transform: translate(-50%, -50%);
+	  transform: translate(-50%, -50%);
+		background-color:grey;
+		height:600px;
+		min-width:600px;
+		opacity:0.8;
+	}
+	
+	
+	
+	#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: flex;
+	
+	justify-content:center;
+	align-items:center;
+    width: 80%;
+    max-width: 700px;
+	overflow:visible;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.center-image{
+	width:800px;
+	max-width:90%;
+}
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.next-pre{
+
+	height:40px;
+	width:40px;
+	margin-left:-20px;
+	margin-right:-20px;
+	z-index:2;
+	background-color:white;
+	border-radius:20px;
+	justify-content:center;
+	align-items:center;
+}
+.next-pre-image{
+	  margin: 0;
+  position: relative;
+  top: 50%;
+  left:50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+  </style>
+</head>
+<body>
+	<div class="paper">
+		<div class="page">
+		
+
+
+			<nav class="nav underline">
+				<h2>sneakers</h2>
+				<div class="nav-items">
+				
+				
+					<p>Collection</p>
+					<p>Men</p>
+					<p>Women</p>
+					<p>About</p>
+					<p>Contact</p>
+				</div>
+				<div class="nav-right">
+					<img class="cart-image" height=20px width=25px src="./images/icon-cart.svg" alt="cart"/>
+					<img class="avatar" height=40px width=40px src="./images/image-avatar.png" alt="avatar"/>
+				</div>
+			</nav>
+	  
+			<div class="product">
+				<div class="product-image">
+					<img id="myImg" class="product1-image" src="./images/image-product-1.jpg" alt="product-1"/>
+
+						<!-- The Modal -->
+						<div id="myModal" class="modal">
+						  <span class="close">&times;</span>
+						  <div class="modal-content">
+							<div class="next-pre" onClick="preClicked()" style="height:40px;width:40px"> <img class="next-pre-image" height="20px" width="20px" src="images/icon-previous.svg"/></div>
+							  <img class="center-image" id="img00">
+							<div class="next-pre" onClick="nextClicked()" style="height:40px;width:40px"> <img class="next-pre-image" height="20px" width="20px" src="images/icon-next.svg"/> </div>
+						  </div>
+						  <ul class="other-images-section">
+								<li tabindex="0"><img id="img-11" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-1.jpg" alt="image-1"/></li>
+								<li tabindex="0"><img id="img-22" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-2.jpg" alt="image-2"/></li>
+								<li tabindex="0"><img id="img-33" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-3.jpg" alt="image-3"/></li>
+								<li tabindex="0"><img id="img-44" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-4.jpg" alt="image-4"/></li>
+							</ul>
+						</div>
+					<div class="other-images-section">
+						<li tabindex="0"><img id="img-1" onClick="changeMainImg(this.id)" class="other-image selected" src="./images/image-product-1.jpg" alt="image-1"/></li>
+						<li tabindex="0"><img id="img-2" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-2.jpg" alt="image-2"/></li>
+						<li tabindex="0"><img id="img-3" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-3.jpg" alt="image-3"/></li>
+						<li tabindex="0"><img id="img-4" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-4.jpg" alt="image-4"/></li>
+					</div>
+				</div>
+				<div class="product-detail">
+					<h4 style="color:hsl(26, 100%, 55%)">SNEAKER COMPANY</h4>
+					<h1 class="product-header">Fall Limited Edition Sneakers</h1>
+					<p>These low-profile sneakers are your perfect casual wear companion. Featuring a 
+						durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+						
+					<div class="price-section">
+						<div class="row">
+							<h1 class="price">$125.00</h1>
+							<div class="offer"><p style="margin:auto;color:hsl(26, 100%, 55%)">50%</p></div>
+						</div>
+						<p style="text-decoration: line-through;">$250.00</p>
+						
+					</div>
+					
+					<div class="add-product">
+						<div class="count">
+							<p style="color:hsl(26, 100%, 55%);"> - </P>
+							<P> 0 </P>
+							<P style="color:hsl(26, 100%, 55%);"> + </P>
+						</div>
+						<div class="cart">
+							
+							<img class="cart-image" color="white" height=20px width=25px src="./images/icon-cart.svg" alt="cart"/>
+							<p style="color:white">Add to Cart</p>
+						</div>
+					</div>
+				</div>
+				
+			</div> 
+	  
+		  <div class="attribution" style="margin-top:50px">
+			Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+			Coded by <a href="#">Rahul Prabhakar</a>.
+		  </div>
+	  </div>
+  </div>
+</body>
+</html>
