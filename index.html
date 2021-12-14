@@ -63,7 +63,7 @@
 		margin-right:40px;
 	}
 	.underline{
-		border-bottom: 5px solid grey;
+		border-bottom: 3px solid grey;
 	}
 	.product{
 		display:flex;
@@ -84,7 +84,7 @@
 		display:flex;
 		margin:auto;
 		margin-top:20px;
-		justify-content:center;
+		justify-content:space-between;
 		align-items:center;
 	}
 	.other-image{
@@ -203,8 +203,9 @@
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
 	padding-bottom:100px;
-    left: 0;
-    top: 0;
+    
+	  left: 0%;
+	  top: 0%;
     width: 100%; /* Full width */
     height: auto; /* Full height */
     overflow-y: scroll;
@@ -286,6 +287,37 @@
     .modal-content {
         width: 100%;
     }
+	.product{
+		display:block;
+	}
+	.page{
+		padding: 15px 5px 15px 5px;
+	}
+	
+	.product-detail{
+		margin-top:20px;
+		margin-left:5px;
+		margin-right:5px;
+		display:block;
+		max-width:100%;
+	}	
+	.product-header{
+		font-size:32px;
+	}
+	.product-detail p{
+		margin-left:0;
+		font-size:16px;
+		color: hsl(219, 9%, 45%);
+		font-weight:300;
+		line-height:30px;
+	}
+	.modal {
+	  left: 50%;
+	  top: 50%;
+	  -webkit-transform: translate(-50%, -50%);
+	  transform: translate(-50%, -50%);
+	}
+
 }
 
 .next-pre{
@@ -315,8 +347,6 @@
 	<div class="paper">
 		<div class="page">
 		
-
-
 			<nav class="nav underline">
 				<h2>sneakers</h2>
 				<div class="nav-items">
@@ -333,8 +363,8 @@
 					<img class="avatar" height=40px width=40px src="./images/image-avatar.png" alt="avatar"/>
 				</div>
 			</nav>
-	  
-			<div class="product">
+			<div class="mainPage" style="display:block">
+				<div class="product">
 				<div class="product-image">
 					<img id="myImg" class="product1-image" src="./images/image-product-1.jpg" alt="product-1"/>
 
@@ -346,12 +376,12 @@
 							  <img class="center-image" id="img00">
 							<div class="next-pre" onClick="nextClicked()" style="height:40px;width:40px"> <img class="next-pre-image" height="20px" width="20px" src="images/icon-next.svg"/> </div>
 						  </div>
-						  <ul class="other-images-section">
+						  <div class="other-images-section">
 								<img id="img-11" tabindex="0" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-1.jpg" alt="image-1"/>
 								<img id="img-22" tabindex="0" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-2.jpg" alt="image-2"/>
 								<img id="img-33" tabindex="0" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-3.jpg" alt="image-3"/>
 								<img id="img-44" tabindex="0" onClick="changeMainImg(this.id)" class="other-image" src="./images/image-product-4.jpg" alt="image-4"/>
-							</ul>
+							</div>
 						</div>
 					<div class="other-images-section">
 						<img id="img-1" tabindex="0" onClick="changeMainImg(this.id)" class="other-image selected" src="./images/image-product-1.jpg" alt="image-1"/>
@@ -388,10 +418,12 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			
 				<div class="attribution" style="margin-top:200px">
-			Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-			Coded by <a href="#">Rahul Prabhakar</a>.
-		  </div>
+					Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+					Coded by <a href="#">Rahul Prabhakar</a>.
+				</div>
 			</div> 
 	  
 		  
