@@ -149,7 +149,7 @@
 		display:flex;
 		margin-top:40px;
 		}
-	.count{
+	.count-section{
 		
 		display:flex;
 		min-width:100px;
@@ -159,7 +159,7 @@
 		background-color: hsl(223, 64%, 98%);
 		border-radius:10px;
 	}
-	.count p{
+	.count-section p{
 		margin:auto;
 		font-weight:800;
 	}
@@ -199,13 +199,14 @@
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
-    position: absolute; /* Stay in place */
+    position: absolute; 
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
+	padding-bottom:100px;
     left: 0;
     top: 0;
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    height: auto; /* Full height */
     overflow-y: scroll;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
@@ -375,25 +376,25 @@
 					</div>
 					
 					<div class="add-product">
-						<div class="count">
-							<p style="color:hsl(26, 100%, 55%);"> - </P>
-							<P> 0 </P>
-							<P style="color:hsl(26, 100%, 55%);"> + </P>
+						<div class="count-section">
+							<p onClick="decrement()" style="color:hsl(26, 100%, 55%);"> - </P>
+							<P id="count"> 0 </P>
+							<P onClick="increment()" style="color:hsl(26, 100%, 55%);"> + </P>
 						</div>
 						<div class="cart">
 							
 							<img class="cart-image" color="white" height=20px width=25px src="./images/icon-cart.svg" alt="cart"/>
-							<p style="color:white">Add to Cart</p>
+							<p onClick="addCart()" style="color:white">Add to Cart</p>
 						</div>
 					</div>
 				</div>
-				
-			</div> 
-	  
-		  <div class="attribution" style="margin-top:50px">
+				<div class="attribution" style="margin-top:200px">
 			Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
 			Coded by <a href="#">Rahul Prabhakar</a>.
 		  </div>
+			</div> 
+	  
+		  
 	  </div>
   </div>
 </body>

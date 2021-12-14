@@ -128,3 +128,16 @@ function changeMainImg(id){
 	mainImg.src = srcImg.src;
 	img.src = srcImg.src;
 }
+
+
+function increment(){
+	var ele = document.getElementById('count');
+	var cnt = ele.innerHTML();
+	ele.innerHTML=cnt+1;
+}
+function decrement(){
+	var ele = document.getElementById('count');
+	var cnt = ele.innerHTML();
+	if(cnt>0)
+	ele.innerHTML=cnt-1;
+}
